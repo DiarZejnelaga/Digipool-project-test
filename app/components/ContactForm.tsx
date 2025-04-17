@@ -90,7 +90,7 @@ export default function ContactForm() {
       <section className="bg-black bg-[url('/assets/Black.png')] bg-cover bg-center min-h-screen text-white py-16 px-6 md:px-20 flex-grow">
 
       <br /><br />  
-        <h3 className="text-pink-500 font-semibold mb-2">LET'S TALK</h3>
+        <h3 className="text-pink-500 font-semibold mb-2">{"LET'S TALK"}</h3>
         <h1 className="text-4xl font-semibold mb-10">How can we help?</h1>
 
         <form onSubmit={handleSubmit} className="space-y-6 max-w-4xl">

@@ -1,6 +1,6 @@
 "use client";
 
-import Services from "./Services";
+
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
@@ -43,14 +43,14 @@ const Navbar = () => {
     >
       
       <div className="flex-shrink-0">
-        <a href="/">
+        <Link href="/">
           <img
             src={scrolled ? "/Inf.png" : "/Logo.png"}
             alt="Logo"
             width={scrolled ? 32 : 152.25}
             height={scrolled ? 32 : 24}
           />
-        </a>
+        </Link>
       </div>
 
      
@@ -133,7 +133,7 @@ const Navbar = () => {
         className={`fixed top-0 right-0 h-full w-64 bg-[#0B0B11] text-white z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="p-6 flex flex-col h-full justify-between">
-          {/* Top */}
+      
           <div className="flex justify-between items-center">
             <Link href="/" onClick={() => setisMenuOpen(false)}>
               <img src="/Logo.png" alt="Logo" className="w-28" />
@@ -173,9 +173,9 @@ const Navbar = () => {
           
           <div className="mt-auto text-center text-xs text-gray-400 space-y-4">
             <div className="flex justify-center space-x-6 text-pink-500 text-xl">
-              <a href="#"><i className="fab fa-facebook" /></a>
-              <a href="#"><i className="fab fa-instagram" /></a>
-              <a href="#"><i className="fab fa-linkedin" /></a>
+              <Link href="#"><i className="fab fa-facebook" /></Link>
+              <Link href="#"><i className="fab fa-instagram" /></Link>
+              <Link href="#"><i className="fab fa-linkedin" /></Link>
             </div>
             <p>© 2025 Digipool Inc. All right reserved.</p>
           </div>

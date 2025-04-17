@@ -1,8 +1,7 @@
 "use client";
 
 
-import Image from "next/image";
-import Navbar from "../components/Navbar";
+
 
 import Clients from "../components/Clients";
 import Whoweare from "../components/Whoweare";

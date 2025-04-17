@@ -38,10 +38,16 @@ export async function POST(req: Request) {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
-  } catch (err: any) {
-    console.error("Proxy error:", err.message);
-    return new Response(JSON.stringify({ result: "error", message: err.message }), {
+  } catch (err: unknown) {
+    let errorMessage = "Something went wrong";
+    if (err instanceof Error) {
+      errorMessage = err.message;
+    }
+  
+    console.error("Proxy error:", errorMessage);
+    return new Response(JSON.stringify({ result: "error", message: errorMessage }), {
       status: 500,
     });
   }
+  
 }
