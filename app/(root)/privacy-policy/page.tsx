@@ -168,11 +168,21 @@ export default function PrivacyPolicyReplica() {
         <div className="mt-6 md:mt-12 pt-4 md:pt-8">
           <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">Key Customization Points:</h2>
           <div className="space-y-3 text-sm md:text-base">
-            <p className="max-md:text-xs">1. Company Name: Replace "{companyInfo.name}" with your official company name if different.</p>
-            <p className="max-md:text-xs">2. Contact Information: Ensure the email addresses provided (e.g., {companyInfo.email}) are correct and up to date.</p>
-            <p className="max-md:text-xs">3. Data Collection & Use: Ensure the types of data and purposes match your business operations.</p>
-            <p className="max-md:text-xs">4. Service Providers: If you use other service providers, list them here.</p>
-            <p className="max-md:text-xs">5. Legal Obligations: Adapt if subject to specific regional laws (e.g., CCPA).</p>
+            <p className="max-md:text-xs">
+              1. Company Name: Replace &quot;{companyInfo.name}&quot; with your official company name if different.
+            </p>
+            <p className="max-md:text-xs">
+              2. Contact Information: Ensure the email addresses provided (e.g., {companyInfo.email}) are correct and up to date.
+            </p>
+            <p className="max-md:text-xs">
+              3. Data Collection &amp; Use: Ensure the types of data and purposes match your business operations.
+            </p>
+            <p className="max-md:text-xs">
+              4. Service Providers: If you use other service providers, list them here.
+            </p>
+            <p className="max-md:text-xs">
+              5. Legal Obligations: Adapt if subject to specific regional laws (e.g., CCPA).
+            </p>
           </div>
         </div>
       </div>
