@@ -85,7 +85,7 @@ export default function VideoPlayer2() {
           onClick={handleVideoClick}
           className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
           style={{
-            cursor: `url(/cursors/${isPlaying ? "pause.svg" : "play.svg"}), pointer`,
+            cursor: `url(/cursors/${isPlaying ? "Pause.svg" : "Play.svg"}), pointer`,
           }}
         />
       </div>
