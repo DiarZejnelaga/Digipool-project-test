@@ -9,6 +9,7 @@ import Link from "next/link";
 export default function Pro() {
     return (
         <>
+        <div className="bg-black width-[1280px] height-[80px]"> </div>
             <Navbar />
             <section className="bg-black text-white p-6 min-h-screen">
                 <div className="max-w-7xl mx-auto">

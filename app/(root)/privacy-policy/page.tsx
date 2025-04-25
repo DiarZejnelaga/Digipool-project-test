@@ -1,120 +1,177 @@
+import React from "react";
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
 
-
-import Footer from '@/app/components/Footer'; 
-import Head from 'next/head';
-
-const PrivacyPolicy = () => {
+export default function PrivacyPolicyReplica() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Head>
-        <title>Privacy Policy | Digipool</title>
-        <meta name="description" content="Privacy policy of Digipool." />
-      </Head>
+      <div className="w-full h-20 bg-black" />
+      <Navbar />
+      
+      {/* Main Content Container */}
+      <div
+        className="mx-auto overflow-auto bg-white max-md:mx-4 max-md:w-auto max-md:mt-20 max-md:px-4 max-md:py-4 md:ml-[70px] md:w-[896px]"
+        style={{
+          marginTop: "100px",
+          fontFamily: "'Gotham', sans-serif",
+          fontWeight: 300,
+          fontSize: "20px",
+          lineHeight: "35px",
+          letterSpacing: "-0.05em",
+          padding: "8px 16px",
+          color: "#333",
+        }}
+      >
+        {/* Privacy Policy Header */}
+        <div className="flex items-center mb-6 md:mb-8">
+          <span className="inline-block w-8 md:w-12 h-px bg-pink-500 mr-3 md:mr-4" />
+          <span className="text-pink-500 uppercase tracking-widest font-semibold text-sm md:text-base">
+            Privacy Policy
+          </span>
+        </div>
+        <br />
 
-      <header className="bg-blue-600 text-white p-4">
-        <h1 className="text-3xl font-bold">Privacy Policy</h1>
-      </header>
+        {/* Policy Content */}
+        <h1 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Privacy Policy for Digipool</h1>
 
-      <main className="max-w-4xl mx-auto p-6">
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Data Controller</h2>
-          <p>
-            The entity responsible for the processing of your personal data under the General Data Protection Regulation (GDPR) is:
+        <div className="mb-4 md:mb-6">
+          <p className="max-md:text-base max-md:leading-7">
+            Your privacy is important to us, and we are dedicated to safeguarding your personal data <br />in accordance with
+            applicable data protection laws. This privacy policy explains what personal data we collect,<br /> how we use it,
+            and your rights concerning your data.
           </p>
-          <p>
-            <strong>DIGIPOOL L.L.C.</strong>
-            <br />
-            Address: Rruga Malush Kosova, Hy.5
-            <br />
-            Email: <a href="mailto:info@digipool.al" className="text-blue-600">info@digipool.al</a>
-          </p>
-        </section>
+        </div>
 
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Data We Collect</h2>
-          <p>We collect personal data when it is necessary for the operation of our website and services. The types of data we collect include:</p>
-          <ul className="list-inside list-disc space-y-2">
-            <li>Contact Information: Name, email address, phone number, postal address.</li>
-            <li>Usage Data: IP address, browser type, access times, pages visited.</li>
-            <li>Contract Data: Information you provide when using our services, such as company details, contract specifics, and payment information.</li>
-            <li>Technical Data: Log files and details about the device you use to access our website.</li>
-          </ul>
-        </section>
+        {/* Data Controller Section */}
+        <div className="mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">1. Data Controller</h2>
+          <div className="space-y-1 max-md:text-base">
+            <p className="font-medium">DIGIPOOL L.L.C.</p>
+            <p>Rruga Malush Kosova, Hy.5</p>
+            <p>
+              Email:{" "}
+              <a href="mailto:info@digipool.al" className="text-blue-600 break-all">
+                info@digipool.al
+              </a>
+            </p>
+          </div>
+        </div>
 
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Purposes of Data Processing</h2>
-          <p>We process your personal data for the following purposes:</p>
-          <ul className="list-inside list-disc space-y-2">
-            <li>To provide and improve our services.</li>
-            <li>To manage contractual and business relationships.</li>
-            <li>To analyze and optimize our website and marketing efforts.</li>
-            <li>To comply with legal obligations.</li>
-          </ul>
-        </section>
-
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Legal Basis for Processing Data</h2>
-          <ul className="list-inside list-disc space-y-2">
+        {/* Data We Collect Section */}
+        <div className="pb-4 md:pb-6 mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">2. Data We Collect</h2>
+          <ul className="list-disc pl-4 md:pl-6 space-y-2 max-md:text-base">
             <li>
-              <strong>Consent</strong> (Art. 6(1)(a) GDPR): When you give us permission to process your data, such as when you subscribe to our newsletter.
+              <strong>Contact Information:</strong> Name, email address, phone number, postal address.
             </li>
             <li>
-              <strong>Contractual Necessity</strong> (Art. 6(1)(b) GDPR): To fulfill a contract you are a part of.
+              <strong>Usage Data:</strong> IP address, browser type, access times, pages visited.
             </li>
             <li>
-              <strong>Legitimate Interests</strong> (Art. 6(1)(f) GDPR): For purposes such as service improvement, securing our infrastructure, and marketing.
+              <strong>Contract Data:</strong> Company details, contract specifics, payment information.
+            </li>
+            <li>
+              <strong>Technical Data:</strong> Log files and details about the device you use.
             </li>
           </ul>
-        </section>
+        </div>
 
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Data Retention and Deletion</h2>
-          <p>
-            We retain your personal data only as long as necessary to fulfill the purposes for which it was collected or to comply with legal requirements. Once the retention period expires, we will securely delete or anonymize your data.
-          </p>
-        </section>
+        {/* Purposes Section */}
+        <div className="pb-4 md:pb-6 mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">3. Purposes of Data Processing</h2>
+          <ol className="list-decimal pl-4 md:pl-6 space-y-2 max-md:text-base">
+            <li>To provide and improve our services</li>
+            <li>To manage contractual and business relationships</li>
+            <li>To analyze and optimize our website and marketing efforts</li>
+            <li>To comply with legal obligations</li>
+          </ol>
+        </div>
 
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Sharing Data with Third Parties</h2>
-          <p>We do not share your personal data with third parties unless you have explicitly consented to it or in the following situations:</p>
-          <ul className="list-inside list-disc space-y-2">
-            <li>Legal Obligations: We may be required to share your data in response to legal requests, such as from regulatory authorities or courts.</li>
-            <li>Service Providers: We may share your data with third-party service providers who assist in the operation of our website or services (e.g., payment processors, email marketing platforms). These providers are contractually bound to protect your data.</li>
+        {/* Legal Basis Section */}
+        <div className="pb-4 md:pb-6 mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">4. Legal Basis for Processing Data</h2>
+          <ul className="list-disc pl-4 md:pl-6 space-y-2 max-md:text-base">
+            <li>Consent (Art. 6(1)(a) GDPR)</li>
+            <li>Contractual Necessity (Art. 6(1)(b) GDPR)</li>
+            <li>Legitimate Interests (Art. 6(1)(f) GDPR)</li>
           </ul>
-        </section>
+        </div>
 
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Your Rights</h2>
-          <ul className="list-inside list-disc space-y-2">
-            <li>Right to Access: You can request confirmation as to whether your data is being processed, and if so, request access to it.</li>
-            <li>Right to Rectification: You can request corrections to inaccurate or incomplete data.</li>
-            <li>Right to Erasure: You can ask us to delete your data if it is no longer needed or if you withdraw your consent.</li>
-            <li>Right to Restrict Processing: You can request that we limit the processing of your data if there is a dispute over its accuracy or legality.</li>
-            <li>Right to Data Portability: You can request your personal data in a structured, commonly used, and machine-readable format.</li>
-          </ul>
-        </section>
-
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Changes to This Privacy Policy</h2>
-          <p>
-            We may update this privacy policy from time to time to reflect changes in legal, technical, or operational matters. The latest version will always be available on our website.
+        {/* Data Retention Section */}
+        <div className="pb-4 md:pb-6 mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">5. Data Retention and Deletion</h2>
+          <p className="max-md:text-base max-md:leading-7">
+            We retain your personal data only as long as necessary to fulfill the purposes for which it was <br /> collected or
+            to comply with legal requirements. Once the retention period expires,<br /> we will securely delete or anonymize
+            your data.
           </p>
-        </section>
+        </div>
 
-        <section className="space-y-6">
-          <h2 className="text-2xl font-semibold">Contact Us</h2>
-          <p>If you have any questions regarding your personal data or wish to exercise any of your rights, please contact us at the details provided above.</p>
-        </section>
-      </main>
+        {/* Third Parties Section */}
+        <div className="pb-4 md:pb-6 mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">6. Sharing Data with Third Parties</h2>
+          <ul className="list-disc pl-4 md:pl-6 space-y-2 max-md:text-base">
+            <li>
+              <strong>Legal Obligations:</strong> We may be required to share your data in response to legal requests,
+              such as from regulatory authorities or courts.
+            </li>
+          </ul>
+        </div>
 
-      <Footer /> 
+        {/* Data Security Section */}
+        <div className="pb-4 md:pb-6 mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">7. Data Security</h2>
+          <p className="max-md:text-base max-md:leading-7">
+            We employ appropriate technical and organizational measures to protect your personal data from unauthorized
+            access, loss, or misuse. Our servers, hosted by AWS in Frankfurt, Germany, comply with GDPR requirements.
+          </p>
+        </div>
 
-      <footer className="bg-gray-800 text-white p-4 text-center">
-        <p>&copy; {new Date().getFullYear()} Digipool. All rights reserved.</p>
-      </footer>
+        {/* Your Rights Section */}
+        <div className="pb-4 md:pb-6 mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">8. Your Rights</h2>
+          <ul className="list-disc pl-4 md:pl-6 space-y-2 max-md:text-base">
+            <li>Right to Access</li>
+            <li>Right to Rectification</li>
+            <li>Right to Erasure</li>
+            <li>Right to Restrict Processing</li>
+            <li>Right to Data Portability</li>
+          </ul>
+        </div>
+
+        {/* Policy Changes Section */}
+        <div className="pb-4 md:pb-6 mb-4 md:mb-6">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">9. Changes to This Privacy Policy</h2>
+          <p className="max-md:text-base max-md:leading-7">
+            We may update this privacy policy from time to time. The latest version will always be available on our
+            website.
+          </p>
+        </div>
+
+        {/* Contact Section */}
+        <div className="mt-6 md:mt-12 pt-4 md:pt-8">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">10. Contact Us</h2>
+          <p className="max-md:text-base max-md:leading-7">
+            If you have any questions regarding your personal data or wish to exercise any of your rights, please
+            contact us at the details provided above.
+          </p>
+        </div>
+
+        {/* Customization Points */}
+        <div className="mt-6 md:mt-12 pt-4 md:pt-8">
+          <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">Key Customization Points:</h2>
+          <div className="space-y-3 text-sm md:text-base">
+            <p className="max-md:text-xs">1. Company Name: Replace "DIGIPOOL L.L.C." with your official company name if different.</p>
+            <p className="max-md:text-xs">2. Contact Information: Ensure the email addresses provided (e.g., info@oneri.de) are correct and up to date.</p>
+            <p className="max-md:text-xs">3. Data Collection & Use: Ensure the types of data and purposes match your business operations.</p>
+            <p className="max-md:text-xs">4. Service Providers: If you use other service providers, list them here.</p>
+            <p className="max-md:text-xs">5. Legal Obligations: Adapt if subject to specific regional laws (e.g., CCPA).</p>
+          </div>
+        </div>
+      </div>
+
+      <br /><br />
+      <Footer />
     </div>
   );
-};
-
-export default PrivacyPolicy;
-
+}

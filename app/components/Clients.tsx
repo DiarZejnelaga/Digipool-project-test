@@ -1,55 +1,82 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
-
-const clientLogos = [
-  "/assets/Frame1.png",
-  "/assets/Frame2.png",
-  "/assets/Frame3.png",
-  "/assets/Frame4.png",
-  "/assets/Frame5.png",
-  "/assets/Frame6.png",
-  "/assets/Frame7.png",
-  "/assets/Frame8.png",
-  "/assets/Frame9.png",
-  "/assets/Frame10.png",
-  "/assets/Frame11.png",
-  "/assets/Frame12.png",
-  "/assets/Frame13.png",
-  "/assets/Frame14.png",
-  "/assets/Frame15.png",
-  "/assets/Frame16.png",
-  "/assets/Frame17.png",
-  "/assets/Frame18.png",
-  "/assets/Frame19.png",
+const clients = [
+  { src: "/assets/Frame1.svg", alt: "ipko" },
+  { src: "/assets/coca.svg", alt: "Coca Cola" },
+  { src: "/assets/redbull.svg", alt: "Red Bull" },
+  { src: "/assets/raiffeisen.svg", alt: "Raiffeisen Bank" },
+  { src: "/assets/peja.svg", alt: "Peja Beer" },
+  { src: "/assets/Rinvest.svg", alt: "Rinvest" },
+  { src: "/assets/sellma.svg", alt: "Sellmashop" },
+  { src: "/assets/Albi.svg", alt: "AlbiMall" },
+  { src: "/assets/neptune.svg", alt: "Neptune" },
+  { src: "/assets/auk.svg", alt: "AUK" },
+  { src: "/assets/air.svg", alt: "Air" },
+  { src: "/assets/IO.svg", alt: "IOLINK" },
+  { src: "/assets/devolli.svg", alt: "Devolli" },
+  { src: "/assets/wizz.svg", alt: "W!ZZ" },
+  { src: "/assets/ceed.svg", alt: "Ceed" },
+  { src: "/assets/renault.svg", alt: "Renault" },
+  { src: "/assets/Frame1.svg", alt: "ipko" },
+  { src: "/assets/coca.svg", alt: "Coca Cola" },
+  { src: "/assets/redbull.svg", alt: "Red Bull" },
+  { src: "/assets/raiffeisen.svg", alt: "Raiffeisen Bank" },
+  { src: "/assets/peja.svg", alt: "Peja Beer" },
+  { src: "/assets/Rinvest.svg", alt: "Rinvest" },
+  { src: "/assets/sellma.svg", alt: "Sellmashop" },
+  { src: "/assets/Albi.svg", alt: "AlbiMall" },
+  { src: "/assets/neptune.svg", alt: "Neptune" },
+  { src: "/assets/auk.svg", alt: "AUK" },
+  { src: "/assets/air.svg", alt: "Air" },
+  { src: "/assets/IO.svg", alt: "IOLINK" },
+  { src: "/assets/devolli.svg", alt: "Devolli" },
+  { src: "/assets/wizz.svg", alt: "W!ZZ" },
+  { src: "/assets/ceed.svg", alt: "Ceed" },
+  { src: "/assets/renault.svg", alt: "Renault" },
 ];
+
 
 export default function Clients() {
   return (
-   
-   
-   <section className="bg-black text-white py-16 px-6">
-      <h3 className="text-center text-lg text-pink-500 uppercase mb-2">
-        - Our Clients
-      </h3>
-      <p className="text-center text-2xl font-light mb-10">
-        Trusted by <span className="font-semibold">brands</span> to grow,
-        engage, and succeed in the digital world.
-      </p>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-items-center">
-        {clientLogos.map((logo, index) => (
-          <img
-            key={index}
-            src={logo}
-            alt={`Client logo ${index + 1}`}
-            
-          />
-        ))}
-      </div>
-    </section>   
+    <section className="bg-black text-white py-30 sm:py-50 px-10 sm:px-12">
+      <div className="max-w-[1280px] mx-auto">
+        {/* Header */}
+        <div className="mb-12 sm:mb-16">
+        <div className="flex items-center mb-8">
+            <span className="inline-block flex-shrink-0 w-12 h-px bg-pink-500 mr-4"></span>
+            <span className="text-pink-500 uppercase tracking-widest font-semibold">
+              Our Clients
+            </span>
+          </div>
+          <br />
+          <h2 className="text-3xl sm:text-4xl font-bold leading-tight max-w-2xl">
+            Trusted by brands to grow, engage, and succeed in the digital world.
+          </h2>
+          <br />
+        </div>
 
+        {/* Adjusted Logo Grid */}
+        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-3 sm:gap-4">
+          {clients.map((client, index) => (
+            <div 
+              key={index}
+              className="group relative h-24 w-full aspect-square"
+            >
+              <Image
+                src={client.src}
+                alt={client.alt}
+                fill
+                className="object-contain object-center p-1"
+                sizes="(max-width: 640px) 96px, 128px"
+                unoptimized
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
-
-

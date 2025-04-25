@@ -24,3 +24,131 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* globals.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* globals.css */
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* globals.css */
+
+/* Define the Gotham font family with multiple weights */
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-ExtraLight.otf') format('opentype');
+  font-weight: 200; /* Extra Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Light.otf') format('opentype');
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Regular.otf') format('opentype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-Bold.otf') format('opentype');
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham-ExtraBold.otf') format('opentype');
+  font-weight: 800; /* Extra Bold */
+  font-style: normal;
+}
+
+/* Apply the Gotham font globally */
+body {
+  font-family: 'Gotham', sans-serif;
+}
+
+/* Optionally, set different weights on specific elements */
+h1 {
+  font-weight: 700; /* Bold */
+}
+
+h2 {
+  font-weight: 600; /* Semi-Bold, if you have this weight */
+}
+
+p {
+  font-weight: 400; /* Regular */
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0) translateY(20px);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up-fade {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(0.9);
+    opacity: 0;
+  }
+}
+
+.animate-grow {
+  animation: grow 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.animate-slide-up-fade {
+  animation: slide-up-fade 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}

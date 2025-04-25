@@ -2,12 +2,13 @@
 import React from "react";
 import Image from "next/image";
 import Footer from "@/app/components/Footer";
-
+import Navbar from "@/app/components/Navbar";
 export default function Second() {
     return (
         <section className="bg-black min-h-screen font-semibold">
             <div className="flex flex-col items-center text-white px-4 py-8">
-                
+            <div className="bg-black width-[1280px] height-[80px]"> </div>
+            <Navbar/>
                 <br /><br />
                 <Image
                     src="/assets/Home.png"

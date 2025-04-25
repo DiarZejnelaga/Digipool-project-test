@@ -2,12 +2,12 @@
 import React from "react";
 import Image from "next/image";
 import Footer from "@/app/components/Footer";
-
+import Navbar from "@/app/components/Navbar";
 export default function Fourth() {
     return (
         <section className="bg-black min-h-screen font-semibold">
             <div className="flex flex-col items-center text-white px-4 py-8">
-               
+               <Navbar/>
                 <br /><br /><br />
                 <Image
                     src="/assets/12.png"

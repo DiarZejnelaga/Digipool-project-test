@@ -1,92 +1,167 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { useRef } from "react";
+
 
 const slides = [
-    { id: 1, image: "/assets/Hero.png" },
-    { id: 2, image: "/assets/Home.png" }
+  { 
+    id: 1, 
+    image: "/assets/Hero.png", 
+    link: "/First", 
+    title: "Tutorial", 
+    description: "Personal business, private business, and private business." 
+  },
+  { 
+    id: 2, 
+    image: "/assets/Home.png", 
+    link: "/Second", 
+    title: "Panasonic", 
+    description: "Branding for a market leader" 
+  },
+  { 
+    id: 3, 
+    image: "/assets/3.png", 
+    link: "/Third", 
+    title: "Panasonic", 
+    description: "Branding for a market leader" 
+  },
+  { 
+    id: 4, 
+    image: "/assets/12.png", 
+    link: "/Fourth", 
+    title: "Panasonic", 
+    description: "Branding for a market leader" 
+  },
+  { 
+    id: 5, 
+    image: "/assets/10.png", 
+    link: "/Fifth", 
+    title: "Panasonic", 
+    description: "Branding for a market leader" 
+  },
 ];
 
 export default function Work() {
-    const [currentSlide, setCurrentSlide] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  let isDown = false;
+  let startX: number;
+  let scrollLeft: number;
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % slides.length);
-    };
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDown = true;
+    startX = e.pageX;
+    scrollLeft = sliderRef.current?.scrollLeft || 0;
+    document.body.style.cursor = 'grabbing';
+    document.body.style.userSelect = 'none';
+  };
 
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    };
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const walk = (x - startX) * 2;
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
 
-    useEffect(() => {
-        const interval = setInterval(nextSlide, 3000); 
-        return () => clearInterval(interval); 
-    }, []);
+  const handleMouseUp = () => {
+    isDown = false;
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  };
 
-    return (
-        <section className="bg-black text-white px-6 md:px-16 py-12">
-            <p className="text-pink-500 font-semibold mb-4">WORK WITH US</p>
-            <h2 className="text-3xl md:text-4xl font-light">
+  return (
+    <>
+      {/* Desktop Version */}
+      <section className="hidden md:block bg-black text-white px-6 py-16">
+        <div className="px-6 md:px-12 pt-12 max-w-screen-xl mx-auto">
+          <h3 className="text-pink-500 uppercase text-sm font-semibold tracking-wide mb-4">
+            ─── Work with us
+          </h3>
+          <br /><br />
+          <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-light text-left">
                 Why say <span className="font-bold">YES</span> to Digipool?
-            </h2>
-            <p className="mt-4 text-sm md:text-base max-w-xl">
+              </h2>
+              <p className="mt-4 text-base text-left max-w-2xl">
                 Whatever your challenge, we combine the best of world-class marketing strategy,
                 creative and technology for maximum business impact.
-            </p>
-            <div className="mt-6">
-                <Link href="/InsideWork">
-                <button className="border border-white text-white hover:border-blue-500 hover:text-blue-500 px-6 py-2 rounded transition">
-                    See all case Studies→
-                </button>
-                </Link>
+              </p>
+              <br /><br />
             </div>
 
-            
-            <div className="relative mt-10 max-w-full overflow-hidden rounded-xl">
-                
-                <motion.div
-                    className="flex w-full transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                    
-                    <div className="w-full relative flex-shrink-0">
-                        <Image
-                            src={slides[0].image}
-                            alt="Slide Image 1"
-                            layout="intrinsic" 
-                            width={1920}      
-                            height={1080}
-                            className="object-contain rounded-xl" 
-                        />
-                    </div>
+            <Link
+              href="/case-studies"
+              className="text-sm font-semibold underline underline-offset-4 hover:opacity-80 transition whitespace-nowrap"
+            >
+              See all case studies →
+            </Link>
+          </div>
+        </div>
 
-                 
-                    <div className="w-full relative flex-shrink-0">
-                        <Image
-                            src={slides[1].image}
-                            alt="Slide Image 2"
-                            layout="intrinsic"
-                            width={1920}
-                            height={1080}
-                            className="object-contain rounded-xl"
-                        />
-                    </div>
-                </motion.div>
+        <div className="relative">
+          <div
+            ref={sliderRef}
+            className="flex overflow-x-auto no-scrollbar cursor-grab active:cursor-grabbing"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+          >
+            {slides.map((slide) => (
+              <Link 
+                href={slide.link}
+                key={slide.id}
+                className="relative flex-shrink-0 w-[33.33%] max-w-[33.33%] overflow-hidden group"  
+              >
+                <div className="relative h-[270px]"> {/* Adjust height */}
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full backdrop-blur-md bg-white/30 text-black text-left px-6 py-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <p className="text-base font-bold">{slide.title}</p>
+                  <p className="text-xs font-normal">{slide.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-               
-                <div className="absolute left-4 top-1/2 text-white cursor-pointer" onClick={prevSlide}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
-                        <path d="M11.293 12.293a1 1 0 0 1-1.414 0L7 9.414l-2.879 2.879a1 1 0 1 1-1.414-1.414l4-4a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414z" />
-                    </svg>
+      {/* Mobile Version */}
+      <section className="md:hidden bg-black text-white px-6 py-12">
+        <h2 className="text-4xl font-bold mb-12">Our work</h2>
+
+        <div className="space-y-12">
+          {slides.map((slide) => (
+            <div key={slide.id} className="border-b border-white/20 pb-12 last:border-0">
+              <Link href={slide.link}>
+                <div className="relative group overflow-hidden rounded-lg">
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    width={600}
+                    height={400}
+                    className="w-full"
+                  />
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full backdrop-blur-md bg-white/30 text-black text-left px-6 py-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-base font-bold">{slide.title}</p>
+                    <p className="text-xs font-normal">{slide.description}</p>
+                  </div>
                 </div>
-                <div className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white cursor-pointer" onClick={nextSlide}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
-                        <path d="M4.707 3.707a1 1 0 0 1 1.414 0L9 6.586l2.879-2.879a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 0-1.414z" />
-                    </svg>
-                </div>
+              </Link>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+        
+      </section>
+    </>
+  );
 }

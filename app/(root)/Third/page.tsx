@@ -1,13 +1,15 @@
+"use client";
 
 import React from "react";
 import Image from "next/image";
 import Footer from "@/app/components/Footer";
-
+import Navbar from "@/app/components/Navbar";
 export default function Third() {
     return (
         <section className="bg-black min-h-screen font-semibold">
+            <div className="bg-black width-[1280px] height-[80px]"> </div>
             <div className="flex flex-col items-center text-white px-4 py-8">
-                
+                <Navbar />
                 <br /><br />
                 <Image
                     src="/assets/3.png"
