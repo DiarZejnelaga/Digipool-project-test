@@ -2,12 +2,19 @@ import React from "react";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
 
+// Centralized company info for reuse
+const companyInfo = {
+  name: "DIGIPOOL L.L.C.",
+  email: "info@digipool.al",
+  addressLine: "Rruga Malush Kosova, Hy.5"
+};
+
 export default function PrivacyPolicyReplica() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="w-full h-20 bg-black" />
       <Navbar />
-      
+
       {/* Main Content Container */}
       <div
         className="mx-auto overflow-auto bg-white max-md:mx-4 max-md:w-auto max-md:mt-20 max-md:px-4 max-md:py-4 md:ml-[70px] md:w-[896px]"
@@ -32,7 +39,7 @@ export default function PrivacyPolicyReplica() {
         <br />
 
         {/* Policy Content */}
-        <h1 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Privacy Policy for Digipool</h1>
+        <h1 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">Privacy Policy for {companyInfo.name}</h1>
 
         <div className="mb-4 md:mb-6">
           <p className="max-md:text-base max-md:leading-7">
@@ -46,12 +53,12 @@ export default function PrivacyPolicyReplica() {
         <div className="mb-4 md:mb-6">
           <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">1. Data Controller</h2>
           <div className="space-y-1 max-md:text-base">
-            <p className="font-medium">DIGIPOOL L.L.C.</p>
-            <p>Rruga Malush Kosova, Hy.5</p>
+            <p className="font-medium">{companyInfo.name}</p>
+            <p>{companyInfo.addressLine}</p>
             <p>
               Email:{" "}
-              <a href="mailto:info@digipool.al" className="text-blue-600 break-all">
-                info@digipool.al
+              <a href={`mailto:${companyInfo.email}`} className="text-blue-600 break-all">
+                {companyInfo.email}
               </a>
             </p>
           </div>
@@ -161,8 +168,8 @@ export default function PrivacyPolicyReplica() {
         <div className="mt-6 md:mt-12 pt-4 md:pt-8">
           <h2 className="text-lg md:text-2xl font-semibold mb-3 md:mb-4">Key Customization Points:</h2>
           <div className="space-y-3 text-sm md:text-base">
-            <p className="max-md:text-xs">1. Company Name: Replace "DIGIPOOL L.L.C." with your official company name if different.</p>
-            <p className="max-md:text-xs">2. Contact Information: Ensure the email addresses provided (e.g., info@oneri.de) are correct and up to date.</p>
+            <p className="max-md:text-xs">1. Company Name: Replace "{companyInfo.name}" with your official company name if different.</p>
+            <p className="max-md:text-xs">2. Contact Information: Ensure the email addresses provided (e.g., {companyInfo.email}) are correct and up to date.</p>
             <p className="max-md:text-xs">3. Data Collection & Use: Ensure the types of data and purposes match your business operations.</p>
             <p className="max-md:text-xs">4. Service Providers: If you use other service providers, list them here.</p>
             <p className="max-md:text-xs">5. Legal Obligations: Adapt if subject to specific regional laws (e.g., CCPA).</p>

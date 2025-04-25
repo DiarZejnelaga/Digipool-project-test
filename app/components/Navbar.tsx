@@ -83,13 +83,13 @@ const Navbar = () => {
       >
         {/* Logo */}
         <div className="flex-shrink-0">
-          <a href="/">
+          <Link href="/">
             <img
               src={scrollProgress > 0.5 ? "/Vector.svg" : "/Logo.svg"}
               alt="Logo"
               style={getLogoSize()}
             />
-          </a>
+          </Link>
         </div>
 
         {/* Static mode links */}

@@ -19,7 +19,7 @@ export default function WhoWeAre() {
               through their online presence since 2013.
             </p><br />
             <p className="text-lg text-gray-800 font-light leading-loose tracking-wide">
-              Our journey began at Httpool's Kosovo office, where we built years of
+              Our journey began at Httpool&apos;s Kosovo office, where we built years of
               expertise in digital marketing. In 2022...
             </p><br />
             <div className="mt-8">

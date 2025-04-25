@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
           <br />
           <h2 className="text-3xl sm:text-4xl font-bold mb-6 mt-2">
-            Let's <span className="text-pink-500">talk</span>
+          Let&apos;s <span className="text-pink-500">talk</span>
           </h2>
           <p className="text-base sm:text-lg mb-10 max-w-md">
             We want to hear about you, your business, and your challenges
