@@ -29,7 +29,7 @@ export default function ServicesSection() {
   ];
 
   return (
-<section className="bg-black text-white py-20 px-10 sm:px-16 md:px-24 lg:px-20 xl:px-20">
+<section id="services" className="bg-black text-white py-20 px-10 sm:px-16 md:px-24 lg:px-20 xl:px-20">
 
   <div className="max-w-7xl mx-auto">
 
@@ -45,16 +45,17 @@ export default function ServicesSection() {
         <div className="flex flex-wrap justify-center gap-8">
           {services.map((service, index) => (
             <div
-              key={index}
-              className="relative bg-black border border-gray-700 rounded-lg p-6 overflow-hidden flex flex-col justify-between"
-              style={{ width: "493px", height: "204px" }}
-            >
-              {/* Light pink glow */}
-              <div className="absolute -top-10 -left-10 w-40 h-40 bg-pink-500 opacity-20 blur-2xl"></div>
-
-              <div className="relative z-10 flex flex-col">
-                {/* Icon */}
-                <div className="mb-3">
+            key={index}
+            className="relative bg-black border border-gray-700 rounded-lg p-6 overflow-hidden flex flex-col justify-between"
+            style={{ width: "493px", height: "204px" }}
+          >
+            {/* Light pink glow */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-pink-500 opacity-20 blur-2xl"></div>
+          
+            <div className="relative z-10 flex flex-col h-full justify-between">
+              {/* Top: Icon + Title side by side */}
+              <div className="flex items-center gap-8 mb-4">
+                <div className="flex-shrink-0">
                   <Image
                     src={service.icon}
                     width={48}
@@ -62,18 +63,18 @@ export default function ServicesSection() {
                     alt={`${service.title} icon`}
                   />
                 </div>
-
-                {/* Title */}
-                <h3 className="text-pink-500 text-base font-semibold leading-tight mb-2 truncate">
+                <h3 className="text-pink-500 text-base font-semibold leading-tight">
                   {service.title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-gray-300 text-xs leading-snug line-clamp-4">
-                  {service.description}
-                </p>
-              </div> 
+              </div>
+          
+              {/* Description */}
+              <p className="text-gray-300 text-s leading-snug line-clamp-4">
+                {service.description}
+              </p>
             </div>
+          </div>
+          
           ))}
         </div>
         <br /><br />

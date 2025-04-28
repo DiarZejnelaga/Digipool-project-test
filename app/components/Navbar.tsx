@@ -23,11 +23,24 @@ const Navbar = () => {
 
   const handleScrollToServices = () => {
     setisMenuOpen(false);
+
+    // Check if we're already on the homepage or if we're navigating to it
     if (pathname === "/") {
       const section = document.getElementById("services");
-      if (section) section.scrollIntoView({ behavior: "smooth" });
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
     } else {
-      router.push("/#services");
+      // Redirect to homepage, then scroll after a brief delay
+      router.push("/");
+
+      // Wait for navigation to complete before scrolling to services
+      setTimeout(() => {
+        const section = document.getElementById("services");
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300); // 300ms delay (adjust as needed)
     }
   };
 
@@ -43,7 +56,6 @@ const Navbar = () => {
     backdropFilter: 'blur(8px)',
     border: scrollProgress > 0 ? '1px solid rgba(255,255,255,0.1)' : 'none'
   });
-  
 
   const getLogoSize = () => ({
     width: `${152.25 - (152.25 - 46.47) * scrollProgress}px`,
@@ -77,9 +89,8 @@ const Navbar = () => {
   return (
     <nav>
       <div
-      style={getNavbarStyle()}
-      className="fixed top-0 left-0 right-0 z-50 mx-auto flex items-center justify-between text-white transition-all duration-500 ease-out w-[87%] box-border"
-      
+        style={getNavbarStyle()}
+        className="fixed top-0 left-0 right-0 z-50 mx-auto flex items-center justify-between text-white transition-all duration-500 ease-out w-[87%] box-border"
       >
         {/* Logo */}
         <div className="flex-shrink-0">
@@ -129,44 +140,44 @@ const Navbar = () => {
         )}
 
         {/* Desktop: Get Started Button */}
-<div className="hidden lg:flex items-center space-x-4">
-  <Link href="/Contact">
-    <button className={`rounded-full border border-[#0652FD] flex items-center justify-center transition-all duration-300 ${
-      scrollProgress > 0.5
-        ? "w-10 h-10 hover:bg-[#0652FD] hover:text-black"
-        : "h-[40px] w-[150px] px-5 hover:bg-[#0652FD] hover:text-white font-bold"
-    }`}>
-      {scrollProgress > 0.5 ? "→" : "Get started→"}
-    </button>
-  </Link>
-</div>
+        <div className="hidden lg:flex items-center space-x-4">
+          <Link href="/Contact">
+            <button className={`rounded-full border border-[#0652FD] flex items-center justify-center transition-all duration-300 ${
+              scrollProgress > 0.5
+                ? "w-10 h-10 hover:bg-[#0652FD] hover:text-black"
+                : "h-[40px] w-[150px] px-5 hover:bg-[#0652FD] hover:text-white font-bold"
+            }`}>
+              {scrollProgress > 0.5 ? "→" : "Get started→"}
+            </button>
+          </Link>
+        </div>
 
-{/* Mobile: Centered Button + Right Hamburger */}
-<div className="flex flex-1 items-center justify-center relative lg:hidden">
-  {/* Centered Get Started */}
-  <Link href="/Contact">
-    <button className={`rounded-full border border-[#0652FD] flex items-center justify-center transition-all duration-300 ${
-      scrollProgress > 0.5
-        ? "w-10 h-10 hover:bg-[#0652FD] hover:text-black"
-        : "h-[40px] w-[150px] px-5 hover:bg-[#0652FD] hover:text-white font-bold"
-    }`}>
-      {scrollProgress > 0.5 ? "→" : "Get started→"}
-    </button>
-  </Link>
+        {/* Mobile: Centered Button + Right Hamburger */}
+        <div className="flex flex-1 items-center justify-center relative lg:hidden">
+          {/* Centered Get Started */}
+          <Link href="/Contact">
+            <button className={`rounded-full border border-[#0652FD] flex items-center justify-center transition-all duration-300 ${
+              scrollProgress > 0.5
+                ? "w-10 h-10 hover:bg-[#0652FD] hover:text-black"
+                : "h-[40px] w-[150px] px-5 hover:bg-[#0652FD] hover:text-white font-bold"
+            }`}>
+              {scrollProgress > 0.5 ? "→" : "Get started→"}
+            </button>
+          </Link>
 
-  {/* Hamburger on the far right */}
-  <div className="absolute right-0">
-    <button
-      onClick={() => setisMenuOpen(!isMenuOpen)}
-      className="text-pink-500 focus:outline-none"
-      aria-label="Toggle menu"
-    >
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-</div>
+          {/* Hamburger on the far right */}
+          <div className="absolute right-0">
+            <button
+              onClick={() => setisMenuOpen(!isMenuOpen)}
+              className="text-pink-500 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
 
       </div>
 
