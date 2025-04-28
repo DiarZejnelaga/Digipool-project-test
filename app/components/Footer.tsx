@@ -110,7 +110,7 @@ export default function Footer() {
           </Link>
           <Link href="#" className="group">
             <img 
-              src="/assets/lin.svg" 
+              src="/assets/Lin.svg" 
               alt="LinkedIn"
               className="w-6 h-6 transition-transform duration-300 group-hover:scale-110"
             />

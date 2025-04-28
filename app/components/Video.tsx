@@ -11,7 +11,7 @@ export default function VideoPlayer2() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // Scroll-triggered animation
+  
   useEffect(() => {
     if (!wrapperRef.current) return;
 
@@ -40,7 +40,7 @@ export default function VideoPlayer2() {
     return () => ctx.revert();
   }, []);
 
-  // Track play/pause state
+  
   useEffect(() => {
     const vid = videoRef.current;
     if (!vid) return;
@@ -57,7 +57,7 @@ export default function VideoPlayer2() {
     };
   }, []);
 
-  // Toggle play/pause on click
+  
   const handleVideoClick = () => {
     const vid = videoRef.current;
     if (!vid) return;
@@ -81,7 +81,7 @@ export default function VideoPlayer2() {
           src="/homepage.mp4"
           loop
           muted
-          controls={false} // disable if you're using custom play/pause on click
+          controls={false} 
           onClick={handleVideoClick}
           className="absolute top-0 left-0 w-full h-full object-cover rounded-xl"
           style={{
